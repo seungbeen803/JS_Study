@@ -1,0 +1,127 @@
+<script>
+  // /*
+  //   (1) 객체만들기
+  //   name 속성이 "Puppy" 이고
+  //   age속성이 5
+  //   gender 속성이 "female"인
+  //   객체 만들기
+  // */
+
+  // //객체 리터럴
+  // let dog = {
+  //   name: "Puppy",
+  //   age: 5,
+  //   gender: "female",
+  // };
+  // console.log(dog);
+
+  // //
+  // let dog2 = new Object();
+  // dog2.name = "Puppy";
+  // dog2.age = 5;
+  // dog2.gender = "female";
+  // console.log(dog2);
+
+  // let raman = new Object();
+  // raman.name = "라면";
+  // raman.price = 1000;
+  // raman.discountRate = 0.2;
+  // console.log(raman);
+
+  // /*
+  //   주변에서 볼 수 있는 임의의 객체 생각해보고,
+  //   필요한 속성 및 속성값을 정의해보기
+  // */
+
+  // let airConditioner = {
+  //   power: true,
+  //   temp: 18,
+  //   wind: 3,
+  // };
+  // // 점연산자, 대괄호연산자로 추가하기
+  // airConditioner.reservation = "17:50"; //점연산자
+  // airConditioner["reservation"] = "15:30"; //대괄호 연산자
+  // console.log(airConditioner);
+
+  // // (4)  (3)에서 동적 추가한 속성 일부를 delete로 삭제하기
+  // delete airConditioner.reservation;
+  // console.log(airConditioner);
+
+  // //하이픈(-)과 스페이스가 포함된 속성 추가하기
+  // airConditioner["power saveing"] = "3";
+  // airConditioner["power cold"] = true;
+
+  // //(6) (2)에서 만든 객체를 "값 단축 구문"을 이용해서 생성하기
+  // let power = false;
+  // let temp = 18;
+  // let wind = 3;
+
+  // let airConditioner2 = {
+  //   power, //power: power
+  //   temp, //temp: temp
+  //   wind, //wind: wind
+  // };
+  // console.log(airConditioner2);
+
+  //(7) Object.assign <= 구글에서 검색해서 써보기.
+  let user = { name: "John", age: 20 };
+  let u1 = changeUser(user, "name", "Sam", true);
+  let u2 = changeUser(user, "name", "Sam", false);
+  let u3 = changeUser(user, "age", 30, false);
+  console.log(user === u1); //true
+  console.log(user === u2); //false
+  console.log(u3); // {name:"John", age: 30}
+
+  function changeUser(obj, key, value, chnage) {
+    if (chnage) {
+      //대상을 직접 바꾸고 대상을 반환
+      obj[key] = value;
+      return obj;
+    } else {
+      //대상을 복사(Object.assign)해서 복사본을 바꾸어서 복사본을 반환
+      let copy = Object.assign({}, obj);
+      copy[key] = value;
+      return copy;
+    }
+  }
+
+  //(8)
+  let user2 = { name: "John", age: 20 };
+  let phone = { price: 10000, model: "iPhone", manu: "Apple" };
+  query(phone);
+  query(user2);
+  // 이후 prompt창이 뜨고 "name,age 중 속성 입력"
+  /*"name" 혹은 "age"로 올바르게 입력한 경우
+  해당 속성값을 alert으로 출력하고
+  아니면 다시 prompt입력을 받도록 함.
+  */
+  // function query(obj) {
+  //   let input = prompt("name, age중 속성 입력");
+  //   if (input == "name") {
+  //     alert(obj.name);
+  //   } else if (input == "age") {
+  //     alert(obj.age);
+  //   } else {
+  //     query(obj); //재귀호출
+  //   }
+  // }
+
+  function query(obj) {
+    //이후 prompt 창이 뜨고 "price, model, manu"중 속성 입력
+    // 1. 어떻게 속성의 이름을 모두 파악할 수 있을까?  =>반복문 for in
+    const props = [];
+    for (let key in phone) props.push(key);
+    // 2. 속성 이름을 배열에 저장하고 전부 ","로 합치려면?   =>j로 시작
+    const s = props.join(",");
+    // 3. 배열에 해당 이름이 포함되어 있는지 검사하는 로직 작성은 어떻게?  =>이건 그냥 짜도 될듯?
+    while (true) {
+      const input = prompt(s + "중 속성 입력");
+      if (props.includes(input.trim())) {
+        // trim : 문자열 양쪽 공백 제거.
+        // includes : 매개변수의 값이 배열내에 포함되어있는지 확인
+        alert(obj[input]);
+        break;
+      }
+    }
+  }
+</script>

@@ -1,0 +1,123 @@
+<script>
+	// 맵
+	// 맵을 사용하면 key의 자료형을 아무거나 사용해도 된다.
+	// let map = new Map();
+
+	// // map['1'] = 'str1';
+	// // set은 값을 저장하는 것
+	// map.set('1', 'str1');   // 문자형 키
+	// map.set(1, 'num1');     // 숫자형 키
+	// map.set(true, 'bool1'); // 불린형 키
+
+	// // get은 값을 가져올 때 사용
+	// console.log(map.get('1'));
+	// console.log(map.get(1));
+	// console.log(map.get(true));
+
+	// console.log(map.size);  // 3
+
+	// // 순수한 객체 자체
+	// let john = { name: "Jhon" };
+	// let visitsCountMap = new Map();
+	// visitsCountMap.set(john, 123);
+	// console.log(visitsCountMap.get(john));  // 123
+
+	// // 객체의 참조가 달라서 값이 undefined로 나온다.
+	// let john2 = { name: "Jhon"};
+	// console.log(visitsCountMap.get(john2)); // undefined
+
+	// 값을 저장하는 법
+	// map.set('1', 'str1').set(1, 'num1').set(true, 'bool1');
+
+	// let recipeMap = new Map([
+	// 	// 배열이고 [key, value]
+	// 	['cucumber', 500],
+	// 	['tomatoes', 350],
+	// 	['onion', 50]
+	// ]);
+
+	// // 배열을 리턴
+	// for (let vegetable of recipeMap.keys()) {  // keys()는 key들이 모여져 있는 배열
+	// 	// cucumber, tomatoes, onion (삽입 순서 기억)
+	// 	console.log(vegetable);
+	// }
+
+	// for (let amount of recipeMap.values()) {
+	// 	// 500, 350, 50 (삽입 순서 기억)
+	// 	console.log(amount);
+	// }
+
+	// for (let entry of recipeMap) {
+	// 	console.log(entry);
+	// }
+
+	// recipeMap.forEach( (value, key, map) => {
+	// 	console.log(`${key}: ${value}`);
+	// 	// cucumber: 500..
+	// });
+
+
+
+	// // 구조 분해 할당
+	// // 이름과 성을 요소로 가진 배열
+	// let arr = ["Bora", "Lee"];
+
+	// // 구조 분해 할당을 이용해 firstName엔 arr[0]을 surname엔 arr[1] 할당하였습니다.
+	// let [firstName, surname] = arr;
+
+	// // 상수로 대입 받기도 가능
+	// const [f, s] = arr;
+
+// 	// split() -> 괄호 안에 들어간 것을 기준으로 나눈다
+// 	let [firstName, surname] = "Bora", "Lee".split(' ');
+
+// 	let s = "Bora Lee".split(' ');
+// 	let firstName = s[0];
+// 	let surname = s[1];
+
+// 	let [firstName, , title] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+	
+	// // ... -> 뒤에 있는 배열을 몽땅 가져온다. (가져올게 없으면 빈 배열!)
+	// let [name1, name2, ...rest] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+	// console.log(name1);
+	// console.log(name2);
+	// console.log(...rest);
+
+
+	// // let [name = "Guest", surname = "Anonymous"] = ["Julius"];
+	// // // Julius, Anonymous가 나오는데 빈 배열이면 Guest, Anonymous가 나온다.
+
+	// let options = { title: "Menu", width: 100, height: 200 };
+	// // 이 줄과
+	// //let { title, width, height } = options;
+	// // 밑 세줄이 같다
+	// // let title = options.title;
+	// // let title = options.width;
+	// // let title = options.height;
+
+	// // 왼쪽이 객체에서 찾아야할 값, 오른쪽이 내가 사용할 실제 변수이름
+	// //let { width: w, height: h, title} = options;
+
+	// 파라미터 목록(소괄호)에서 구조 분해 수행 가능
+	// 함수에 전달할 객체
+	let options = {
+	title: "My menu",
+	items: ["Item1", "Item2"]
+	};
+
+	// 전달받은 객체를 분해해 함수 지역 변수에 즉시 할당함
+	// 구조 분해하기 위한 중괄호
+	function showMenu({ 
+		title = "Untitled", 
+		width = 200, 
+		height = 100, 
+		items = [] 
+	}) {
+		// title, items – 객체 options에서 가져옴
+		// width, height – 기본값
+		alert( `${title} ${width} ${height}` ); // My Menu 200 100
+		alert( items ); // Item1, Item2
+	}
+	showMenu(options);
+
+</script>

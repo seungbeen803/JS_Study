@@ -1,0 +1,10 @@
+<script>
+  function getDiscountPrice(p) {
+    return p.price - p.price * p.rate;
+    // 객체이기 때문에 정적 변수를 불러올 때는 객체.값으로
+    // 함수이면 객체.(매개변수)
+  }
+  let product = { name: "라면", price: 1000, rate: 0.2 };
+  let discountPrice = getDiscountPrice(product); //800
+  console.log(discountPrice);
+</script>

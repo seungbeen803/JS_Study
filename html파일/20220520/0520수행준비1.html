@@ -1,0 +1,18 @@
+<script>
+  // 평균 값을 반환하는 average함수
+  function average(n) {
+    let sum = 0;
+    for (let i = 0; i < n.length; i++) {
+      sum += n[i];
+    }
+    return sum / n.length;
+  }
+  let avg = average([100, 50, 25]);
+  console.log(avg); // 58.333..
+
+  // function average(arr) {
+  //   let sum = 0;
+  //   for(const n of arr) sum += n;
+  //   return sum / arr.length;
+  // }
+</script>

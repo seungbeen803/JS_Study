@@ -1,0 +1,80 @@
+<script>
+    // // 여기서부터 전역 실행 컨텍스트가 생성됨
+    // 컨텍스트를 생성하는 단계에서 호이스팅이 이루어진다.
+    // 전역 객체 => window = this
+
+    // // 전역 컨텍스트를 생성하는 시점에 세 가지 작업이 수행
+    // // 1. 전역 객체를 생성 (브라우저에서는 window, 노드인 경우 global)
+    // console.log(window);
+    // // 2. this를 전역 객체로 할당
+    // console.log(this);
+    // // 3. 사용할 값들(ex: 변수, 함수 등)을 위한 메모리 할당 및 초기화
+
+    // var a = 100;
+    // let b = 200;
+    // function f() { console.log('hello'); }
+    // a = 300;
+    // b = 400;
+
+    // var a = 100;
+    // let b = 200;
+    // function add(x, y) {
+    //     console.log(arguments);
+    //     return x + y;
+    // } 
+    // let result = add(a, b);
+
+    // var a = 100;
+    // let b = 200;
+    // function addAndDouble(x, y) {
+    // return double(x + y);
+    // }
+    // function double(x) {
+    //     return 2 * x;
+    // }
+    // let result = addAndDouble(a, b);
+
+    // var a = 100;
+    // let b = 200;
+    // function addAndDouble(x, y) {
+    // function double(x) {
+    //     return 2 * x;
+    // }
+    // return double(x + y);
+    // }
+    // let result = addAndDouble(a, b);
+
+    // let sum = 0;
+    // let y = 100;
+    // function makeAdder(init = 0) {
+    // let sum = init;
+    // return function(x) {
+    //     sum += x + y;
+    //     return sum;
+    //     }
+    // }
+    // let adder = makeAdder(sum); // adder = > 200
+    // let result = adder(1); // result1 == 101
+
+    // let person = { name: "John" };
+    // person.makeSayHelloTo = function(to) {
+    //     let name = this.name;
+    //     return function() {
+    //         console.log(name, 'say hello to', to);
+    //     }
+    // }
+    // let johnSayHelloToSally = person.makeSayHelloTo('Sally');
+    // johnSayHelloToSally();
+
+    // "use strict"가 있으면 엄격모드 없으면 비엄격모드
+    // let person = { name: "John" };
+    // person.makeSayHelloTo = function(to) {
+    //    consol.log(this.name); // person
+    //     return function() {
+    //         console.log(this); // => window
+    //         console.log(this.name, 'say hello to', to);
+    //     }
+    // }
+    // let johnSayHelloToSally = person.makeSayHelloTo('Sally');
+    // johnSayHelloToSally();
+</script>

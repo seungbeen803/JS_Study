@@ -1,0 +1,77 @@
+<script>
+  // // 만들어진 시점에서 렉시컬이 같으면 공유하고, 같지않으면 공유하지않는다
+  // // 렉시컬 환경 = 객체
+  // function makeCounter() {
+  //     let count = 0;
+  //     return function() {
+  //         return count++;
+  //     };
+  // }
+
+  // // 독립적 객체를 생성할 때마다 렉시컬 환경을 새로 만들기 때문이다
+  // // count를 공유하지 않는다
+  // let c1 = makeCounter();
+  // console.log( c1() ); // 0
+  // console.log( c1() ); // 1
+
+  // let c2 = makeCounter();
+  // console.log( c2() ); // 0
+  // console.log( c1() ); // 1
+
+  // let a = 0;
+  // function makeCounter() {
+  //     return function() {
+  //         return a++;
+  //     };
+  // }
+  // // count를 공유하지않는다
+
+  // let c3 = makeCounter();
+  // console.log( c1() ); // 0
+  // console.log( c1() ); // 1
+
+  // let c4 = makeCounter();
+  // console.log( c2() ); // 2
+  // console.log( c1() ); // 3
+
+  let a = 100;
+  function func1() {
+    let b = 200;
+    function func2() {
+      let c = 300;
+      return function (amount = 1) {
+        a += amount;
+        b += amount;
+        c += amount;
+        console.log(a, b, c);
+      };
+    }
+    return func2();
+  }
+
+  let f1 = func1();
+  f1();
+  f1();
+  f1();
+  let f2 = func1();
+  f2(2);
+  f2(3);
+  f2(4);
+
+  // let a = 100;
+  // function func1() {
+  //     let b = 200;
+  //     function func2() {
+  //         return function() {
+  //             let c = 300;
+  //             a++; b++; c++;
+  //             console.log(a, b, c);
+  //         }
+  //     }
+  //     return [func2(), func2()];
+  // }
+
+  // let fArr = func1();
+  // fArr[0]();
+  // fArr[1]();
+</script>

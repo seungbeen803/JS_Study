@@ -1,0 +1,29 @@
+<script>
+    function Bank(init = 0){
+        this.balance = init;
+    }
+    Bank.prototype.getBalance = function() {
+        return this.balance;
+    }
+    Bank.prototype.deposit = function(amount) {
+        this.balance += amount;
+    }
+    Bank.prototype.withdraw = function(amount) {
+        if(amount >= this.balance) {
+                const left = this.balance;
+                this.balance = 0;
+                return left;
+            } else {
+                this.balance -= amount;
+                return amount;
+            }
+    }
+    let bank = new Bank(1000);
+    bank.deposit(1000);
+    bank.deposit(2000);
+    console.log(bank.getBalance()); // 3000
+    let r1 = bank.withdraw(1000);
+    console.log(r1, bank.getBalance()); // 1000, 2000
+    let r2 = bank.withdraw(5000);
+    console.log(r2, bank.getBalance); // 2000, 0
+</script>

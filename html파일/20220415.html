@@ -1,0 +1,17 @@
+<script>
+    // 환경은 클로저가 생성된 시점의 유효 범위 내에 있는 모든 지역 변수로 구성된다.
+
+    class Button {
+        constructor(value) {
+            this.value = value;
+        }
+        // click 메서드를 화살표 함수를 이용해서 정의
+        click = () => {
+            (this.value);
+        }
+        nonBinded() {
+            alert(this.value);
+        }
+    }
+
+</script>

@@ -1,0 +1,21 @@
+<script>
+    let r = new Range(1, 10);
+    // 생성자 함수는 함수 이름이 대문자로 시작
+    function Range(s, e) {
+        this.start = s;
+        this.end = e;
+        // this.in = function(num) {
+        //     return (num >= this.start && num <= this.end);
+        // }
+        Range.prototype.in = function(num){
+            return (num >= this.start && num <= this.end);
+        }
+    }
+    // 가급적 in 메서드를 prototype에 정의해보자! (아니어도 구현은 됨)
+    let b1 = r.in(5);
+    let b2 = r.in(11);
+    console.log(r.start);
+    console.log(r.end);
+
+    // 함수, 메서드, 배열
+</script>

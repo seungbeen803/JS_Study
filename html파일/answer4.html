@@ -1,0 +1,13 @@
+<script>
+  function nameSplit(n) {
+    let share = name.split(" ");
+    return {
+      // 공백을 기준으로 앞에는 John, 뒤는 Smith로 나뉜다.
+      first: share[0],
+      last: share[1]
+    }
+  }
+  let name = "John Smith";
+  let s = nameSplit(name);
+  console.log(s); // {first: "John", last: "Smith"};
+</script>

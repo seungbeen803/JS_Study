@@ -1,0 +1,11 @@
+<script>
+    function getDiscountPrice(p) {
+      // 객체를 사용하기 위해서는 . 연산자를 이용하면 된다
+      // 객체 이름.속성
+      return p.price - p.price * p.rate
+    }
+    // : 을 기준으로 왼쪽은 키, 오른쪽은 값 -> 객체
+    let product = { name: "라면", price: 1000, rate: 0.2 };
+    let discountPrice = getDiscountPrice(product); //800
+    console.log(discountPrice); // 800
+</script>

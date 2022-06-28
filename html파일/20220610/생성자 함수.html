@@ -1,0 +1,30 @@
+<script>
+    // 다음의 생성자 함수 작성
+    function Point(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+    let p = new Point(2, 3);
+    console.log(p); // { x: 2, y: 3 }
+
+
+    const user = { id: 1, name: "John", age: 20};
+    // 1번 문제의 메서드를 생성자 함수 내부에서 추가하거나
+    // prototype을 이용해서 정의하기(권장)
+    function User(id, name, age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+    User.prototype.isMinor = function() {
+        if(this.age < 20) return true;
+        else return false;
+    }
+    User.prototype.speakName = function(num = 1) {
+        for(let i = 0; i < num; i++) console.log(this.name);
+    }
+    let u = new User(1, "Jhon", 20);
+    console.log(u);
+
+   
+</script>

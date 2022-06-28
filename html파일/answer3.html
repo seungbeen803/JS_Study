@@ -1,0 +1,11 @@
+<script>
+  let p1 = { x: 0, y: 3 };
+  function move(point, dx, dy) {
+    return {
+      x: point.x + dx,
+      y: point.y + dy,
+    };
+  }
+  let p2 = move(p1, 2, 3);
+  console.log(p2); // {x: 2, y: 6}
+</script>

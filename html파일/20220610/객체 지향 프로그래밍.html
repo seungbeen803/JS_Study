@@ -1,0 +1,72 @@
+<script>
+    // 객체 지향 프로그래밍
+    class Cart {
+       constructor() {
+        // 배열
+        this.cartItems = [];
+       }
+       add(item) {
+        this.cartItems.push(item);
+       }
+       getTotalItemCount() {
+        let sum = 0;
+        for(const item of this.cartItems) {
+            sum += item.count;
+        }
+        return sum;
+       }
+       getTotalPrice() {
+        let sum = 0;
+        for(const item of this.cartItems) {
+            sum += item.getPrice();
+        }
+        return sum;
+       }
+       getTotalDiscountPrice() {
+        let sum = 0;
+        for(const item of this.cartItems){
+            sum += item.getDiscountPrice();
+        }
+        return sum;
+       }
+       getDifference() {
+        return this.getTotalPrice() - this.getTotalDiscountPrice();
+       }
+       empty() {
+        this.cartItems = []; // 빈 배열 추가
+       }
+    }
+    class CartItem {
+        constructor(food, price, count, rate) {
+            this.food = food;
+            this.price = price;
+            this.count = count;
+            this.rate = rate;
+        }
+        getPrice() { // 구현한 걸 가져가는 것이 반복되지 않고 효율적임
+           return this.price*this.count;
+        }
+        getDiscountPrice() {
+            return (this.price - this.price * this.rate)*this.count; 
+        }
+    }
+    let cart = new Cart();
+    let item1 = new CartItem("초코파이", 2000, 10, 0.1);
+    let item2 = new CartItem("신라면 블랙", 1000, 5, 0.2);
+
+    console.log(item1.getPrice()); // 20000
+    console.log(item1.getDiscountPrice()); // 18000
+
+    cart.add(item1);
+    cart.add(item2);
+
+    console.log(cart.getTotalItemCount()); // 15
+    console.log(cart.getTotalPrice()); // 25000
+    console.log(cart.getTotalDiscountPrice()); // 18000+4000 => 22000
+    console.log(cart.getDifference()); //3000
+    cart.empty();
+
+    console.log(cart.getTotalItemCount()); // 0
+    console.log(cart.getTotalPrice()); // 0
+    console.log(cart.getTotalDiscountPrice()); // 0
+</script>

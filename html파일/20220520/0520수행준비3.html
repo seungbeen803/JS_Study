@@ -1,0 +1,15 @@
+<script>
+    // for .. in => 객체의 키 값을 순회
+    // for .. of => 배열의 요소 순회
+    function swapKeyValue(obj) {
+        let o = {};
+        for(const key in obj) {
+            const value = obj[key];
+            o[value] = key;
+        }
+        return o;
+    }
+    const o = {a: "B", c: "D"};
+    const o2 = swapKeyValue(o);
+    console.log(o2); // {B: "a", D: "c"}
+</script>

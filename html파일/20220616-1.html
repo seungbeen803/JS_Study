@@ -1,0 +1,16 @@
+<script>
+    function getSummary(arr) {
+        let max = arr[0];
+        let min = arr[0];
+        let sum = 0;
+
+        for(const num of arr){
+            if(num > max) max = num;
+            if(num < min) min = num;
+            sum += num;
+        }
+        return {max, min, avg: (sum/arr.length)}
+    }
+    let summary = getSummary([100, 50, 60]);
+    console.log(summary);
+</script>

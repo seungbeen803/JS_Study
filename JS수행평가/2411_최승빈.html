@@ -1,0 +1,49 @@
+<script>
+    /* 2411_최승빈 */
+function last(arr){
+    let a = arr[arr.length - 1];
+    if(a === undefined) return null;
+    return a;
+}
+const value1 = last([2, 1]);
+const value2 = last([2]);
+const value3 = last([]);
+console.log(value1);
+console.log(value2);
+console.log(value3);
+
+function nth(arr, idx) {
+    let e = arr[idx];
+    if(e === undefined) return null;
+    return e;
+}
+const value4 = nth( [2, 3, 1], 2 );
+console.log(value4); 
+const value5 = nth( [2, 3, 1], 3 ); 
+console.log(value5); 
+const value6 = nth( [], 0 ); 
+console.log(value6);
+
+function reverse(arr) {
+    let result = [];
+    for(let i = arr.length - 1; i >= 0; i--) {
+        result.push(arr[i]);
+    }
+    return result;
+}
+const value7 = reverse( [3, 2, 1] );
+console.log(value7);
+const value8 = reverse( ["Hello", "world"] );
+console.log(value8);
+
+function short(str) {
+    if(str.length >= 10) {
+        return str[0] + (str.length - 2) + str[str.length - 1];
+    } else {
+        return str;
+    }
+}
+console.log(short("word"));
+console.log(short("localization"));
+console.log( short("internationalization") ); 
+</script>

@@ -1,0 +1,13 @@
+<!-- 함수 sumAll 정의 -->
+<script>
+    function sumAll(num) {
+        let sum = 0
+        // 배열이 나오면 무조건 for문부터 생각하자
+        for(let i = 0; i < num.length; i++) {
+            sum += num[i]
+        }
+        return sum;
+    }
+    let result = sumAll([1, 2, 3]);
+    console.log(result); // 6
+</script>

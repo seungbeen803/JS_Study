@@ -1,0 +1,15 @@
+<script>
+    function addMatrix(m1, m2) {
+        let result = []; // 행
+        for(let i = 0; i < m1.length; i++) {
+            let row = []; // 열
+            for(let j = 0; j < m1[i].length; j++) {
+                row.push(m1[i][j] + m2[i][j]);
+            }
+            result.push(row);
+        }
+        return result;
+    }
+    const m = addMatrix([[1, 2], [3, 4]], [[3, 4], [5, 6]]);
+    console.log(m);
+</script>
