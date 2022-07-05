@@ -1,0 +1,15 @@
+<script>
+// 전개 구문
+// 배열 앞쪽에 위치한 값 몇 개만 필요하고 
+// 그 이후 이어지는 나머지 값들은 한에 모아서 저장하고 싶을 때 
+// 점 세개(...) 연산자를 사용
+
+let [name1, name2, ...rest] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+console.log(name1);  // Julius
+console.log(name2);  // Caesar
+
+// rest는 배열
+console.log(rest[0]);  // Consul
+console.log(rest[1]);  // of the Roman Republic
+console.log(rest.length);  // 2
+</script>

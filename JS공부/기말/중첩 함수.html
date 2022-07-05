@@ -1,0 +1,13 @@
+<script>
+    // 중첩함수
+    function sayHiBye(fistname, lastName)
+    {
+        function getFullName(){
+            return fistname + " " + lastname;
+        }
+
+        alert("Hello, " + getFullName);
+        alert("Bye, " + getFullName);
+    }
+    sayHiBye("철수", "김");
+</script>
