@@ -1,6 +1,18 @@
 <script>
-    let timerId = setInterval(() => console.log('째깍'), 2000);
+    let timerId = setInterval(() => console.log("째깍"), 2000);
     setTimeout(() => {
         clearInterval(timerId);
-        }, 6000);
+    }, 6000);
+    // 현재 시간 2초마다 출력
+    // setInterval(() => console.log(new Date()), 2000);
+
+    // 1~9까지의 수 랜덤하게 출력
+    // setInterval(() => console.log(Math.floor(Math.random()*10)), 2000);
+
+    // 2초마다 수가 1씩 증가
+    // let count = 0;
+    // setInterval(() => console.log(++count), 2000);
+
+    // let intervalId = setInterval(() => console.log(new Date()), 2000);
+    // clearInterval(intervalId);
 </script>
