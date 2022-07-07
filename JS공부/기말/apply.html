@@ -1,0 +1,47 @@
+<script>
+      function printThis() {
+    console.log(this);
+  }
+
+  let person = {name: "Jhon", age: 20};
+  let dog = {name: "Sam", age: 5};
+
+  // 출력
+  printThis.apply(person);
+  printThis.apply(dog);
+
+  function printName(prefix, times=1) {
+    console.log(this);
+    for(let i=0; i<times; i++){
+        console.log(prefix, this.name);
+    }
+  }
+  printName.call(person, ["Hello", 2]);
+  printName.call(dog, ["Good"]);
+
+  const mike = {
+    name: "Mike",
+   };
+
+   const tom = {
+    name: "Tom",
+   };
+
+   function showThisName() {
+    console.log(this.name);
+   }
+   showThisName();
+   showThisName.apply(mike);
+   showThisName.apply(tom);
+
+   function update(birthYear, occupation) {
+    this.birthYear = birthYear;
+    this.occupation = occupation;
+   }
+   update.apply(mike, [1999, "singer"]);
+   console.log(mike);
+   update.apply(tom, [2002, "teacher"]);
+   console.log(tom);
+
+   
+</script>
