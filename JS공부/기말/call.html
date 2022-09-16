@@ -42,4 +42,13 @@
 //    console.log(mike);
 //    update.call(tom, 2002, "teacher");
 //    console.log(tom);
+
+let kim = {name: "kim", first: 10, second: 20};
+let lee = {name: "lee", first:10, second: 10};
+function sum() {
+  return this.first + this.second;
+}
+console.log("sum.call(kim)", sum.call(kim));
+console.log("sum.call(lee)", sum.call(lee));
+sum.call(lee);
 </script>

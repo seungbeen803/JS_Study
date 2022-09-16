@@ -1,0 +1,30 @@
+<script>
+    // try...catch 구문이 먼저 시작
+    try {
+        setTimeout(function() {
+            noSuchVariable;
+        }, 1000);
+    }catch(e) {
+        alert("작동 멈춤");
+    }
+
+    // Error는 너무 포괄적이다
+    // 상속을 받아서 사용
+    // SyntaxError는 부분이므로 자세하게 에러를 만드는 것이 중요(문법에러)
+    // ValidationError -> 형식에 어긋났을 때 사용하는 에러(만든에러)
+    let e1 = new Error("내가 만든 에러 객체");
+    let e2 = new SyntaxError("내가 만든 문법 에러 객체");
+
+    e = new Error("");
+    e = new SyntaxError("");
+    e = new ValidationError("");
+
+    // Error의 타입에 따라서 true랑 false 값이 나온다
+    e instanceof SyntaxError
+
+    // setTimeout은 비동기(동시에 일어나지 않는 것)
+    // stack (비표준 프로퍼티)
+    // 어떤 특정 브라우저에서는 없을 수도 있다.
+    
+    // 클래스 함수 안에 생성자 함수
+</script>

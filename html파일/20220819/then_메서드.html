@@ -1,0 +1,47 @@
+<script>
+// promise.then(
+//     function(result) { /* 결괏값을 이용한 코드 작성 */ },
+//     function(error) { /* 에러 처리 관련 코드 작성 */ }
+// );
+
+// 성공했을 때
+let promise1 = new Promise(function(resolve, reject) {
+    setTimeout(() => resolve("done!"), 1000);
+});
+// resolve 함수는 then의 첫 번째 함수(인수)를 실행
+promise1.then(
+    result => alert(result), // 1초 후 "done!"을 출력
+    error => alert(error) // 실행되지 않음
+);
+
+// 실패했을 때
+let promise2 = new Promise(function(resolve, reject) {
+    setTimeout(() => reject(new Error("에러 발생!")), 1000);
+});
+// reject 함수는 then의 두 번째 함수를 실행
+promise2.then(
+    result => alert(result), // 실행되지 않음
+    error => alert(error) // 1초 후 "Error: 에러 발생!"를 출력
+);
+
+let promise = new Promise(function(resolve, reject) {
+    setTimeout(() => {
+        // 특정 작업을 진행한 후 이후 렌덤하게 성공, 실패 여부가 결정된다고 가정
+        let success = Math.random() + .5 >> 0;
+    
+        if(success) {
+            // 성공하면 resolve 함수 호출하며 결괏값 전달
+            resolve({ result: "Hello" });
+        } else {
+            // 실패하면 reject 함수 호출하며 에러 객체 전달
+            reject(new Error("실패"));
+        }
+    }, 1000);
+});
+
+promise.then(
+    result => alert(JSON.stringify(result)),
+    error => alert(error)
+);
+
+</script>
