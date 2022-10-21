@@ -1,0 +1,7 @@
+<!-- 스크립트 태그의 type 속성 및 속성값 지정 -->
+<script type="module">
+// 다 가져오는데 sayHi라는 객체에 집어넣겠다는 의미
+import * as sayHi from './sayHi.js';
+document.body.innerHTML = sayHi.sayHi('John');
+console.log(sayHi.hello);
+</script>
