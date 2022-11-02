@@ -8,8 +8,8 @@
     <!-- UI 만드는 step
     1. HTML/CSS로 미리 디자인
     2. 필요할 때 보여달라고 코드짬 -->
-    <div class="alert-box" id="alert">알림창임<button onclick="alertClose()">닫기</button></div>
-    <button onclick="alertOpen()">버튼</button>
+    <div class="alert-box" id="alert">알림창임<button onclick="alertOpen('none')">닫기</button></div>
+    <button onclick="alertOpen('block')">버튼</button>
 
     <script> 
         // 자바스크립트 function 문법 -> 긴 코드 축약하고 싶을 때 사용
@@ -20,14 +20,25 @@
         // 2. camelCase
 
         // Alert 박스 여는 코드
-        function alertOpen(){
-            document.getElementById('alert').style.display = 'block';
+        function alertOpen(구멍){
+            document.getElementById('alert').style.display = 구멍;
         }
+        // alertOpen 안의 코드를 실행한다는 의미
+        // 소괄호에 'block'을 넣어서 alertOpen 안의 코드가 실행이 된다.
+        alertOpen('block');
+        alertOpen('none');
 
-        // Alert 박스 닫는 코드
-        function alertClose(){
-            document.getElementById('alert').style.display = 'none';
+        function plus(num) {
+            2 + num
         }
+        plus(1);
+        plus(4);
+        plus(6);
+
+        // // Alert 박스 닫는 코드
+        // function alertClose(구멍){
+        //     document.getElementById('alert').style.display = 'none';
+        // }
     </script>
 </body>
 </html>
