@@ -1,25 +1,44 @@
 <!DOCTYPE html>
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
     <!-- UI 만드는 step
     1. HTML/CSS로 미리 디자인
     2. 필요할 때 보여달라고 코드짬 -->
     <div class="alert-box" id="alert">
-        <p>알림창임</p>
+        <p id="title">알림창임</p>
         <button onclick="alertOpen('none');">닫기</button>
     </div>
 
-    <button onclick="alertOpen('block');">버튼1</button>
-    <button onclick="alertOpen('block');">버튼2</button>
-    
-    <script> 
-        function alertOpen(구멍){
+    <!-- 코드 작성 전 한글로 수도코드 작성 후 코딩하기 -->
+    <button onclick="idAllim();">버튼1</button>
+    <button onclick="idAllim2();">버튼2</button>
+
+    <script>
+        // 함수
+        function idAllim() {
+            // 1. p태그 내용을 아이디를 입력하세요로 바꿈
+            document.getElementById('title').innerHTML = "아이디를 입력하세요.";
+            // 2. 띄움
+            document.getElementById('alert').style.display = 'block';
+        }
+
+        function idAllim2() {
+            // 1. p태그 내용을 비밀번호를 입력하세요로 바꿈
+            document.getElementById('title').innerHTML = "비밀번호를 입력해주세요.";
+            // 띄움
+            document.getElementById('alert').style.display = 'block';
+        }
+        
+        function alertOpen(구멍) {
             document.getElementById('alert').style.display = 구멍;
         }
     </script>
 </body>
+
 </html>
