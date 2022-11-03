@@ -38,10 +38,15 @@
             document.getElementById('alert').style.display = 'block';
         }
         
-        // addEventListener(파라미터, 파라미터2) <- 안에 파라미터 두 개를 입력해줘야 함
+        // addEventListener(이벤트명, 파라미터2) <- 안에 파라미터 두 개를 입력해줘야 함
+        // assEventListener()을 사용하면 onclick이 없어도 그 역할을 대신한다.
+        // 클릭, 키입력, 스크롤, 드래그 -> event
+        // (이벤트명, 콜백함수)
+        // 콜백함수 -> 코드를 순차적 실행할 때 가끔 보인다
         document.getElementById('close').addEventListener('click', function(){
             document.getElementById('alert').style.display = 'none';
         });
+
         function alertOpen(구멍) {
             document.getElementById('alert').style.display = 구멍;
         }
