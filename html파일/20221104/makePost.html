@@ -1,0 +1,55 @@
+<body>
+    <div id="posts"></div>
+    <div id="editor"></div>
+</body>
+<script>
+    function makePostEditor() {
+        let div = document.createElement("div");
+        div.setAttribute("id", "editor");
+        div.innerHTML = `<span>글 제목</span><input type="text" id="title" /><br/> 
+                         <span>글 내용</span><input type="text" id="content" /><br/>
+                         <button>글 추가</button>`;
+
+        // 힌트 : children => div id="editor"의 입장에서 children[0] => span
+        // 글 추가
+        div.children[6].onclick = function() {
+            // makePost 호출
+            let post = makePost(
+                div.children[1].value,
+                div.children[4].value
+            );
+            posts.append(post)
+        }
+        return div;
+    }
+    document.body.prepend(makePostEditor());
+
+    let post = makePost("제목", "내용");
+    function makePost(title, content) {
+        let div = document.createElement('div');
+        div.innerHTML = `
+            <h1>${title}</h1>
+            <p>${content}</p>
+            <p>${(new Date()).toString()}</p>`;
+            // object안에 prototype 안에 toString이 들어있다
+
+        // 삭제 버튼 추가
+        let button = document.createElement("button");
+        button.textContent = "삭제";
+        div.append(button);
+        button.addEventListener('click', () => {
+            div.remove()
+        }); 
+        return div;
+    }
+    // let post1 = makePost("아몬드", "아몬드브리즈");
+    // document.getElementById("posts").append(post1);
+
+    // for(let i=1; i<=20; i++) {
+    //     posts.append(makePost("글 제목" + i, "글 내용" + i));
+    // }
+
+
+
+</script>
+

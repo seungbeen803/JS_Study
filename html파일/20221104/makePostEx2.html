@@ -1,0 +1,31 @@
+<body>
+    <div id="posts"></div>
+</body>
+<script>
+    let post = makePost("제목", "내용");
+    function makePost(title, content) {
+        // div태그 추가
+        // innerHTML -> 태그 포함 내용 작성
+        // textContent -> 태그를 포함 하지 않고 내용 작성
+        // createElement -> 태그 만드는 것
+        let div = document.createElement("div");
+        div.innerHTML = `<h1>${title}</h1> <p>${title}</p>`;
+        
+        // 삭제 버튼 기능
+        // append -> 요소 추가
+        // 반복문
+        let button = document.createElement("button");
+        button.textContent = "삭제";
+        div.append(button);
+
+        button.onclick = function() {
+            button.parentElement.remove();
+        }
+        return div;
+    }
+    
+    for(let i=1; i<=20; i++) {
+        posts.append(makePost("글 제목" + i, "글 내용" + i));
+    }
+
+</script>
