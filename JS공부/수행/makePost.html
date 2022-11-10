@@ -1,0 +1,29 @@
+<body>
+    <div id="posts"></div>
+</body>
+<script>
+    let post = makePost("제목", "내용");
+    function makePost(title, content){
+        // div태그 만들기
+        // createElement : 태그 만들기
+        let div = document.createElement('div');
+        div.innerHTML = `
+            <h1>${title}</h1>
+            <p>${content}</p>
+        `;
+
+        // 삭제 버튼 기능 추가
+        let button = document.createElement('button');
+        button.textContent = "삭제";
+        div.append(button);
+        button.addEventListener('click', () => {
+            div.remove()
+        });
+        return div;
+    }
+    
+    // 20번 반복
+    for(let i = 1; i <= 20; i++) {
+        posts.append(makePost("글 제목" + i, "글 내용" + i));
+    }
+</script>
