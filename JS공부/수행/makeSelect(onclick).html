@@ -1,0 +1,35 @@
+<body>
+    <input id="option_text" type="text">
+    <button id="add_option">추가</button>
+    <div id="select-holder"></div>
+</body>
+<script>
+    let options = ["apple", "banana", "grape"];
+    let select = makeSelect(options);
+
+    function makeSelect(options) {
+        let select = document.createElement('select');
+        for(let i of options) {
+            let option = document.createElement('option');
+            option.setAttribute('value', i);
+            option.textContent = i;
+            select.append(option)
+        }
+        return select;
+    }
+
+    document.getElementById('select-holder').append(select)
+
+    function addOptionToSelect(select, value) {
+        let option = document.createElement('option');
+        option.setAttribute('value', value);
+        option.textContent = value;
+        select.append(option)
+    }
+
+    let input = document.getElementById('option_text');
+    document.getElementById('add_option').onclick =  () => {
+        if(input.value === "") alert("값을 입력하시오.")
+        else addOptionToSelect(select, input.value);
+    };
+</script>

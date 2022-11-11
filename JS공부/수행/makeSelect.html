@@ -1,0 +1,46 @@
+<body>
+    <input id="option_text" type="text">
+    <button id="add_option">추가</button>
+    <div id="select-holder"></div>
+</body>
+<script>
+
+    // 1. makeSelect
+    // - createElement 사용하여 select 태그 만들고
+    // - for of 사용하여 배열 안의 요소로 option 태그 만들고
+    // - option 태그에 setAttribute로 value 속성 값 지정해준 후, select에 추가시키기
+    function makeSelect(options) {
+        let s = document.createElement('select');
+        for(let i of options) {
+            let option = document.createElement('option');
+            option.setAttribute('value', i);
+            option.textContent = i;
+            s.append(option)
+        }
+        return s;
+    }
+    
+    
+    let options = ["apple", "banana", "grape"];
+    let s = makeSelect(options);
+    
+    document.getElementById("select-holder").append(s);
+    
+    // 2. addOptionToSelect
+    // - option 태그 만들어서 value에 전달받은 옵션 내용 추가
+    // - select에 option 추가
+    function addOptionToSelect(s, value) {
+        let option = document.createElement('option');
+        // (속성, 파라미터 값)
+        option.setAttribute('value', value);
+        option.textContent = value;
+        s.append(option)
+    }
+    
+    let button = document.getElementById('add_option');
+    let input = document.getElementById('option_text');
+    button.addEventListener('click', () => {
+        if(input.value === "") alert("값을 입력하시오.")
+        else addOptionToSelect(s, input.value);
+    });
+</script>
